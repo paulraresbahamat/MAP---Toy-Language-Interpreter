@@ -1,0 +1,16 @@
+package Model.ADT;
+import Exceptions.DictException;
+
+public interface IDict<K,V> {
+    //put a new key-value pair in the dict
+    void put(K key, V value);
+
+    //get value for a given key
+    V get(K key) throws DictException;
+
+    //check if a key exists
+    boolean isDefined(K key);
+
+    //update a key's value
+    void update(K key, V new_value) throws DictException;
+}
