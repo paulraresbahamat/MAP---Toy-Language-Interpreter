@@ -4,6 +4,9 @@ import Model.ADT.IDict;
 import Model.ADT.IList;
 import Model.Statement.IStmt;
 import Model.Value.IValue;
+import Model.Value.StringValue;
+
+import java.io.BufferedReader;
 
 public class PrgState {
     private IStack<IStmt> exeStack;
@@ -26,11 +29,20 @@ public class PrgState {
 
     private IStmt originalProgram;
 
-    public PrgState(IStack<IStmt> exeStack, IDict<String, IValue> symTable, IList<IValue> output, IStmt originalProgram){
+    private IDict<StringValue, BufferedReader> fileTable;
+
+    public IDict<StringValue, BufferedReader> getFileTable(){
+        return fileTable;
+    }
+
+    public PrgState(IStack<IStmt> exeStack, IDict<String, IValue> symTable, IList<IValue> output, IStmt originalProgram,
+                    IDict<StringValue, BufferedReader> fileTable){
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.output = output;
         this.originalProgram = originalProgram.deepCopy();
+        this.fileTable = fileTable;
+
         exeStack.push(originalProgram);
     }
 
@@ -38,6 +50,6 @@ public class PrgState {
     public String toString(){
         return "Program State {\n" + "exeStack=" + exeStack.getList() +
                 ",\n symTable=" + symTable + ",\n output=" + output +
-                ",\n originalProgram=" + originalProgram + "\n}";
+                ",\n originalProgram=" + originalProgram + ",\nfileTable=" + fileTable + "\n}";
     }
 }

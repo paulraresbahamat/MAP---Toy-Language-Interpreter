@@ -1,0 +1,77 @@
+Program State {
+exeStack=[(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n)))))],
+ symTable={},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[boolean m, (Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))],
+ symTable={},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))],
+ symTable={m=false},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[Int n, (m = true;(if (m) then (n = 10) else (n = 5);print(n)))],
+ symTable={m=false},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[(m = true;(if (m) then (n = 10) else (n = 5);print(n)))],
+ symTable={m=false, n=0},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[m = true, (if (m) then (n = 10) else (n = 5);print(n))],
+ symTable={m=false, n=0},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[(if (m) then (n = 10) else (n = 5);print(n))],
+ symTable={m=true, n=0},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[if (m) then (n = 10) else (n = 5), print(n)],
+ symTable={m=true, n=0},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[n = 10, print(n)],
+ symTable={m=true, n=0},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[print(n)],
+ symTable={m=true, n=10},
+ output=[],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}
+Program State {
+exeStack=[],
+ symTable={m=true, n=10},
+ output=[10],
+ originalProgram=(boolean m;(Int n;(m = true;(if (m) then (n = 10) else (n = 5);print(n))))),
+fileTable={}
+}

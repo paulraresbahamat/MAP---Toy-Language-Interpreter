@@ -1,0 +1,42 @@
+Program State {
+exeStack=[(Int a;(a = 5;print(a)))],
+ symTable={},
+ output=[],
+ originalProgram=(Int a;(a = 5;print(a))),
+fileTable={}
+}
+Program State {
+exeStack=[Int a, (a = 5;print(a))],
+ symTable={},
+ output=[],
+ originalProgram=(Int a;(a = 5;print(a))),
+fileTable={}
+}
+Program State {
+exeStack=[(a = 5;print(a))],
+ symTable={a=0},
+ output=[],
+ originalProgram=(Int a;(a = 5;print(a))),
+fileTable={}
+}
+Program State {
+exeStack=[a = 5, print(a)],
+ symTable={a=0},
+ output=[],
+ originalProgram=(Int a;(a = 5;print(a))),
+fileTable={}
+}
+Program State {
+exeStack=[print(a)],
+ symTable={a=5},
+ output=[],
+ originalProgram=(Int a;(a = 5;print(a))),
+fileTable={}
+}
+Program State {
+exeStack=[],
+ symTable={a=5},
+ output=[5],
+ originalProgram=(Int a;(a = 5;print(a))),
+fileTable={}
+}

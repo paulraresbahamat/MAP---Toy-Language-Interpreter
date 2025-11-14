@@ -26,7 +26,6 @@ public class IfStmt implements IStmt {
             val = this.exp.eval(prg.getSymTable());
         } catch (ExpressionException | CustomException e){
             throw new CustomException(e.getMessage());
-            //add exceptions like this to arithexp and logicalexp
         }
         if(val.getType().equals(new BoolType())){
             if(((BoolValue) val).getVal()){

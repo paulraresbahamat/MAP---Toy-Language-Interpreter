@@ -31,10 +31,10 @@ public class Controller {
 
     public void allSteps() throws CustomException{
         PrgState currentPrg = repo.getCurrent();
-        System.out.println(currentPrg);
+        repo.logPrgStateExec(currentPrg);
         while(!currentPrg.getExeStack().isEmpty()){
             oneStep(currentPrg);
-            System.out.println(currentPrg);
+            repo.logPrgStateExec(currentPrg);
         }
     }
 }
