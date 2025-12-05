@@ -1,6 +1,6 @@
-package Model.Statement;
-import Exceptions.CustomException;
-import Model.PrgState;
+package model.statement;
+import exceptions.CustomException;
+import model.PrgState;
 
 public class NoOPStmt implements IStmt {
     @Override

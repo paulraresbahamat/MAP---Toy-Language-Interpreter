@@ -1,7 +1,7 @@
-package Model.Statement;
-import Exceptions.CustomException;
-import Model.PrgState;
-import Model.ADT.IStack;
+package model.statement;
+import exceptions.CustomException;
+import model.PrgState;
+import model.adt.IStack;
 
 public class CompStmt implements IStmt {
     private IStmt first;

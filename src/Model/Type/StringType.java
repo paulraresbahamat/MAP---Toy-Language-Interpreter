@@ -1,6 +1,6 @@
-package Model.Type;
-import Model.Value.IValue;
-import Model.Value.StringValue;
+package model.type;
+import model.value.IValue;
+import model.value.StringValue;
 
 public class StringType implements IType {
     @Override

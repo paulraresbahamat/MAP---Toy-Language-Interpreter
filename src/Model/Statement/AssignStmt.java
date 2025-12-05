@@ -1,12 +1,13 @@
-package Model.Statement;
+package model.statement;
 
-import Exceptions.DictException;
-import Exceptions.ExpressionException;
-import Exceptions.CustomException;
-import Model.PrgState;
-import Model.Expression.IExpression;
-import Model.Value.IValue;
-import Model.ADT.IDict;
+import exceptions.DictException;
+import exceptions.ExpressionException;
+import exceptions.CustomException;
+import model.PrgState;
+import model.adt.IHeap;
+import model.expression.IExpression;
+import model.value.IValue;
+import model.adt.IDict;
 
 public class AssignStmt implements IStmt {
     private String id;
@@ -18,29 +19,36 @@ public class AssignStmt implements IStmt {
     }
 
     @Override
-    public PrgState execute(PrgState prg) throws CustomException{
+    public PrgState execute(PrgState prg) throws CustomException {
         IDict<String, IValue> symTable = prg.getSymTable();
-        if(symTable.isDefined(id)){
-            IValue val;
-            try{
-                val = this.exp.eval(symTable);
-            }catch(ExpressionException | CustomException e){
-                throw new CustomException(e.getMessage());
-            }
-            try{
-                if(val.getType().equals(symTable.get(id).getType())){
-                    symTable.put(id,val);
-                }else{
-                    throw new CustomException("Declared type of variable " + id + " and type of the assigned expression do not match");
-                }
-            } catch(DictException | CustomException e){
-                throw new CustomException(e.getMessage());
-            }
-        } else{
+        IHeap<Integer, IValue> heap = prg.getHeap();
+
+        if (!symTable.isDefined(id)) {
             throw new CustomException("The variable " + id + " has not been declared.");
         }
+
+        try {
+            IValue val = exp.eval(symTable, heap);
+            IValue oldVal = symTable.get(id);
+
+            if (!val.getType().equals(oldVal.getType())) {
+                throw new CustomException("Declared type of variable " + id +
+                        " and type of the assigned expression do not match");
+            }
+
+            symTable.put(id, val);
+
+        } catch (ExpressionException e) {
+            throw new CustomException(e.getMessage());
+        } catch (DictException e) {
+            throw new CustomException(e.getMessage());
+        } catch (CustomException e) {
+            throw e;
+        }
+
         return prg;
     }
+
 
     @Override
     public String toString(){

@@ -1,10 +1,11 @@
-package Model.Expression;
-import Exceptions.ExpressionException;
-import Exceptions.CustomException;
-import Model.Type.IntType;
-import Model.Value.IValue;
-import Model.Value.IntValue;
-import Model.ADT.IDict;
+package model.expression;
+import exceptions.ExpressionException;
+import exceptions.CustomException;
+import model.adt.IHeap;
+import model.type.IntType;
+import model.value.IValue;
+import model.value.IntValue;
+import model.adt.IDict;
 
 public class ArithmeticExp implements IExpression {
     private IExpression exp1;
@@ -18,31 +19,28 @@ public class ArithmeticExp implements IExpression {
     }
 
     @Override
-    public IValue eval(IDict<String, IValue> symTable) throws ExpressionException, CustomException{
+    public IValue eval(IDict<String, IValue> symTable, IHeap<Integer, IValue> heap) throws ExpressionException, CustomException{
         IValue v1, v2;
-        v1 = exp1.eval(symTable);
+        v1 = exp1.eval(symTable, heap);
         if (v1.getType().equals(new IntType())){
-            v2 = exp2.eval(symTable);
+            v2 = exp2.eval(symTable, heap);
             if(v2.getType().equals(new IntType())){
                 IntValue i1 = (IntValue) v1;
                 IntValue i2 = (IntValue) v2;
                 int n1, n2;
                 n1 = i1.getVal();
                 n2 = i2.getVal();
-                switch(operation){
-                    case '+':
-                        return new IntValue(n1+n2);
-                    case '-':
-                        return new IntValue(n1-n2);
-                    case '*':
-                        return new IntValue(n1*n2);
-                    case '/':
-                        if(n2 == 0)
+                return switch (operation) {
+                    case '+' -> new IntValue(n1 + n2);
+                    case '-' -> new IntValue(n1 - n2);
+                    case '*' -> new IntValue(n1 * n2);
+                    case '/' -> {
+                        if (n2 == 0)
                             throw new ExpressionException("Cannot divide by 0.");
-                        return new IntValue(n1/n2);
-                    default:
-                        throw new CustomException("Invalid arithmetic operator. Use +, -, * or / .");
-                }
+                        yield new IntValue(n1 / n2);
+                    }
+                    default -> throw new CustomException("Invalid arithmetic operator. Use +, -, * or / .");
+                };
             } else
                 throw new CustomException("Operands must be integers.");
         } else

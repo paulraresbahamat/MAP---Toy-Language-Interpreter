@@ -1,10 +1,10 @@
-package View;
+package view;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import View.Command.Command;
-import View.Command.RunExample;
+import view.command.Command;
+import view.command.RunExample;
 
 public class TextMenu {
     private Map<String, Command> commands;

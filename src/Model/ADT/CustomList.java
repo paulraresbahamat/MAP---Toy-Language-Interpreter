@@ -1,8 +1,8 @@
-package Model.ADT;
+package model.adt;
 
 import java.util.List;
 import java.util.ArrayList;
-import Exceptions.ListException;
+import exceptions.ListException;
 
 public class CustomList<T> implements IList<T> {
     private List<T> list;

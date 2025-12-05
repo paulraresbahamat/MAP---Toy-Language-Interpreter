@@ -1,14 +1,19 @@
-package Controller;
+package controller;
 
-import Repository.IRepository;
-import Model.ADT.IStack;
-import Exceptions.CustomException;
-import Exceptions.StackException;
-import Model.PrgState;
-import Model.Statement.IStmt;
+import model.adt.IHeap;
+import model.value.IValue;
+import repository.IRepository;
+import model.adt.IStack;
+import exceptions.CustomException;
+import exceptions.StackException;
+import model.PrgState;
+import model.statement.IStmt;
+
+import java.util.Map;
 
 public class Controller {
     private IRepository repo;
+    private boolean useSafeGarbageCollector = true;
 
     public Controller(IRepository repo){
         this.repo = repo;
@@ -29,12 +34,24 @@ public class Controller {
         return currentStmt.execute(prg);
     }
 
-    public void allSteps() throws CustomException{
+    public void allSteps() throws CustomException {
         PrgState currentPrg = repo.getCurrent();
         repo.logPrgStateExec(currentPrg);
-        while(!currentPrg.getExeStack().isEmpty()){
+        while (!currentPrg.getExeStack().isEmpty()) {
             oneStep(currentPrg);
             repo.logPrgStateExec(currentPrg);
+
+            IHeap<Integer, IValue> heap = currentPrg.getHeap();
+            Map<Integer, IValue> cleaned = useSafeGarbageCollector
+                    ? heap.safeGarbageCollector(currentPrg.getUsedAddresses(), heap.getHeap())
+                    : heap.unsafeGarbageCollector(currentPrg.getUsedAddresses(), heap.getHeap());
+            heap.setHeap(cleaned);
         }
     }
+
+    public void allSteps(boolean useSafe) throws CustomException {
+        this.useSafeGarbageCollector = useSafe;
+        allSteps();
+    }
+
 }

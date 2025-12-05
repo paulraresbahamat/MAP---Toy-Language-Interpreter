@@ -1,12 +1,16 @@
-package Model;
-import Model.ADT.IStack;
-import Model.ADT.IDict;
-import Model.ADT.IList;
-import Model.Statement.IStmt;
-import Model.Value.IValue;
-import Model.Value.StringValue;
+package model;
+import model.adt.IHeap;
+import model.adt.IStack;
+import model.adt.IDict;
+import model.adt.IList;
+import model.statement.IStmt;
+import model.value.IValue;
+import model.value.RefValue;
+import model.value.StringValue;
 
 import java.io.BufferedReader;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PrgState {
     private IStack<IStmt> exeStack;
@@ -35,13 +39,20 @@ public class PrgState {
         return fileTable;
     }
 
+    private IHeap<Integer, IValue> heap;
+
+    public IHeap<Integer, IValue> getHeap(){
+        return heap;
+    }
+
     public PrgState(IStack<IStmt> exeStack, IDict<String, IValue> symTable, IList<IValue> output, IStmt originalProgram,
-                    IDict<StringValue, BufferedReader> fileTable){
+                    IDict<StringValue, BufferedReader> fileTable, IHeap<Integer, IValue> heap){
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.output = output;
         this.originalProgram = originalProgram.deepCopy();
         this.fileTable = fileTable;
+        this.heap = heap;
 
         exeStack.push(originalProgram);
     }
@@ -50,6 +61,16 @@ public class PrgState {
     public String toString(){
         return "Program State {\n" + "exeStack=" + exeStack.getList() +
                 ",\n symTable=" + symTable + ",\n output=" + output +
-                ",\n originalProgram=" + originalProgram + ",\nfileTable=" + fileTable + "\n}";
+                ",\n originalProgram=" + originalProgram + ",\nfileTable=" + fileTable + ",\n heap=" + heap + "\n}";
+    }
+
+    public Set<Integer> getUsedAddresses(){
+        Set<Integer> usedAddresses = new HashSet<>();
+        for(IValue value : this.symTable.getValues()){
+            if(value instanceof RefValue){
+                usedAddresses.add(((RefValue) value).getAddress());
+            }
+        }
+        return usedAddresses;
     }
 }

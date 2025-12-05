@@ -1,10 +1,10 @@
-package Model.Statement;
+package model.statement;
 
-import Exceptions.CustomException;
-import Exceptions.ExpressionException;
-import Model.Expression.IExpression;
-import Model.PrgState;
-import Model.Value.IValue;
+import exceptions.CustomException;
+import exceptions.ExpressionException;
+import model.expression.IExpression;
+import model.PrgState;
+import model.value.IValue;
 
 public class PrintStmt implements IStmt {
     private IExpression exp;
@@ -17,7 +17,7 @@ public class PrintStmt implements IStmt {
     public PrgState execute(PrgState prg) throws CustomException {
         IValue val;
         try {
-            val = this.exp.eval(prg.getSymTable());
+            val = this.exp.eval(prg.getSymTable(), prg.getHeap());
         } catch (ExpressionException | CustomException e){
             throw new CustomException(e.getMessage());
         }

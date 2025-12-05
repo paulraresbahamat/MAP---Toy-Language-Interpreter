@@ -1,13 +1,12 @@
-package Model.Statement;
+package model.statement;
 
-import Exceptions.CustomException;
-import Exceptions.ExpressionException;
-import Model.Expression.IExpression;
-import Model.PrgState;
-import Model.Type.IType;
-import Model.Type.StringType;
-import Model.Value.IValue;
-import Model.Value.StringValue;
+import exceptions.CustomException;
+import exceptions.ExpressionException;
+import model.expression.IExpression;
+import model.PrgState;
+import model.type.StringType;
+import model.value.IValue;
+import model.value.StringValue;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -21,22 +20,19 @@ public class OpenRFile implements IStmt{
 
     @Override
     public PrgState execute(PrgState prg) throws CustomException {
-        IValue value;
         try {
-            value = exp.eval(prg.getSymTable());
-        } catch (ExpressionException | CustomException e) {
-            throw new CustomException(e.getMessage());
-        }
-        if (!value.getType().equals(new StringType())) {
-            throw new CustomException("The expression must be a string.");
-        }
-        StringValue stringValue = (StringValue) value;
-        if (prg.getFileTable().isDefined(stringValue)) {
-            throw new CustomException("File is already open.");
-        }
-        try {
+            IValue value = exp.eval(prg.getSymTable(), prg.getHeap());
+            if (!value.getType().equals(new StringType())) {
+                throw new CustomException("The expression must be a string.");
+            }
+            StringValue stringValue = (StringValue) value;
+            if (prg.getFileTable().isDefined(stringValue)) {
+                throw new CustomException("File is already open.");
+            }
             BufferedReader buff = new BufferedReader(new FileReader(stringValue.getValue()));
             prg.getFileTable().put(stringValue, buff);
+        } catch (ExpressionException | CustomException e) {
+            throw new CustomException(e.getMessage());
         } catch (FileNotFoundException e) {
             throw new CustomException("File not found: " + e.getMessage());
         }

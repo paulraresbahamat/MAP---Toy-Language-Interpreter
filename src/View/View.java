@@ -1,23 +1,20 @@
-package View;
+package view;
 
-import Controller.Controller;
-import Model.ADT.*;
-import Model.Expression.ArithmeticExp;
-import Model.Expression.ConstantValue;
-import Model.Expression.VariableExp;
-import Model.PrgState;
-import Model.Statement.*;
-import Model.Type.BoolType;
-import Model.Type.IntType;
-import Model.Type.StringType;
-import Model.Value.BoolValue;
-import Model.Value.IValue;
-import Model.Value.IntValue;
-import Model.Value.StringValue;
-import Repository.IRepository;
-import Repository.Repository;
-import View.Command.ExitCommand;
-import View.Command.RunExample;
+import controller.Controller;
+import model.adt.*;
+import model.expression.*;
+import model.PrgState;
+import model.statement.*;
+import model.type.BoolType;
+import model.type.IntType;
+import model.type.RefType;
+import model.type.StringType;
+import model.value.BoolValue;
+import model.value.IValue;
+import model.value.IntValue;
+import model.value.StringValue;
+import repository.IRepository;
+import repository.Repository;
 
 import java.io.BufferedReader;
 
@@ -77,13 +74,119 @@ public class View {
                                                                         new CloseRFile(new VariableExp("varf"))))))))));
     }
 
+    public static IStmt exampleFive() {
+        // Ref int v;new(v,20);Ref Ref int a; new(a,v);print(v);print(a)
+        return new CompStmt(
+                new VarDeclStmt("v", new RefType(new IntType())),
+                new CompStmt(
+                        new NewStmt("v", new ConstantValue(new IntValue(20))),
+                        new CompStmt(
+                                new VarDeclStmt("a",
+                                        new RefType(new RefType(
+                                                new IntType()))),
+                                new CompStmt(
+                                        new NewStmt("a", new VariableExp("v")),
+                                        new CompStmt(
+                                                new PrintStmt(new VariableExp(
+                                                        "v")),
+                                                new PrintStmt(new VariableExp(
+                                                        "a")))))));
+    }
+
+    public static IStmt exampleSix() {
+        // Ref int v;new(v,20);Ref Ref int a; new(a,v);print(rH(v));print(rH(rH(a))+5)
+        return new CompStmt(
+                new VarDeclStmt("v", new RefType(new IntType())),
+                new CompStmt(
+                        new NewStmt("v", new ConstantValue(new IntValue(20))),
+                        new CompStmt(
+                                new VarDeclStmt("a",
+                                        new RefType(new RefType(
+                                                new IntType()))),
+                                new CompStmt(
+                                        new NewStmt("a", new VariableExp("v")),
+                                        new CompStmt(
+                                                new PrintStmt(new ReadHeapExp(
+                                                        new VariableExp("v"))),
+                                                new PrintStmt(new ArithmeticExp(
+                                                        '+',
+                                                        new ReadHeapExp(new ReadHeapExp(
+                                                                new VariableExp("a"))),
+                                                        new ConstantValue(
+                                                                new IntValue(5)))))))));
+    }
+
+    public static IStmt exampleSeven() {
+        // Ref int v;new(v,20);print(rH(v)); wH(v,30);print(rH(v)+5);
+        return new CompStmt(
+                new VarDeclStmt("v", new RefType(new IntType())),
+                new CompStmt(
+                        new NewStmt("v", new ConstantValue(new IntValue(20))),
+                        new CompStmt(
+                                new PrintStmt(new ReadHeapExp(new VariableExp("v"))),
+                                new CompStmt(
+                                        new WriteHeapStmt("v",
+                                                new ConstantValue(
+                                                        new IntValue(30))),
+                                        new PrintStmt(new ArithmeticExp('+',
+                                                new ReadHeapExp(new VariableExp(
+                                                        "v")),
+                                                new ConstantValue(
+                                                        new IntValue(5))))))));
+    }
+
+    public static IStmt exampleEight() {
+        // Ref int v;new(v,20);Ref Ref int a; new(a,v); new(v,30);print(rH(rH(a)))
+        return new CompStmt(
+                new VarDeclStmt("v", new RefType(new IntType())),
+                new CompStmt(
+                        new NewStmt("v", new ConstantValue(new IntValue(20))),
+                        new CompStmt(
+                                new VarDeclStmt("a",
+                                        new RefType(new RefType(
+                                                new IntType()))),
+                                new CompStmt(
+                                        new NewStmt("a", new VariableExp("v")),
+                                        new CompStmt(
+                                                new NewStmt("v", new ConstantValue(
+                                                        new IntValue(30))),
+                                                new PrintStmt(new ReadHeapExp(
+                                                        new ReadHeapExp(new VariableExp(
+                                                                "a")))))))));
+    }
+
+    public static IStmt exampleNine() {
+        // int v; v=4; (while (v>0) print(v);v=v-1);print(v)
+        return new CompStmt(
+                new VarDeclStmt("v", new IntType()),
+                new CompStmt(
+                        new AssignStmt("v", new ConstantValue(new IntValue(4))),
+                        new CompStmt(
+                                new WhileStmt(
+                                        new RelExp(
+                                                new VariableExp("v"),
+                                                new ConstantValue(
+                                                        new IntValue(0)),
+                                                ">"),
+                                        new CompStmt(
+                                                new PrintStmt(new VariableExp(
+                                                        "v")),
+                                                new AssignStmt("v",
+                                                        new ArithmeticExp('-',
+                                                                new VariableExp("v"),
+                                                                new ConstantValue(
+                                                                        new IntValue(1)))))),
+                                new PrintStmt(new VariableExp("v")))));
+    }
+
     public static PrgState createPrgState(IStmt originalProgram) {
         IStack<IStmt> exeStack = new CustomStack<>();
         IDict<String, IValue> symTable = new CustomDict<>();
         IList<IValue> output = new CustomList<>();
         IDict<StringValue, BufferedReader> fileTable = new CustomDict<>();
+        IHeap<Integer, IValue> heap = new CustomHeap<>();
 
-        return new PrgState(exeStack, symTable, output, originalProgram, fileTable);
+        return new PrgState(exeStack, symTable, output, originalProgram, fileTable, heap);
     }
 
     public static Controller createController(IStmt stmt, String logFilePath) {

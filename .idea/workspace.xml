@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Exception" />
         <option value="Interface" />
+        <option value="Exception" />
         <option value="Class" />
       </list>
     </option>
@@ -34,16 +34,17 @@
     "Application.View.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RunManager" selected="Application.Interpreter">
     <configuration name="Interpreter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.Interpreter" />
+      <option name="MAIN_CLASS_NAME" value="view.Interpreter" />
       <module name="MAP - A2. Toy Language Interpreter." />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="View.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -59,11 +60,11 @@
       </method>
     </configuration>
     <configuration name="View" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.View" />
+      <option name="MAIN_CLASS_NAME" value="view.View" />
       <module name="MAP - A2. Toy Language Interpreter." />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="View.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

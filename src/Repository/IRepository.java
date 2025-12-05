@@ -1,6 +1,6 @@
-package Repository;
-import Exceptions.CustomException;
-import Model.PrgState;
+package repository;
+import exceptions.CustomException;
+import model.PrgState;
 
 public interface IRepository {
     void add(PrgState prg);

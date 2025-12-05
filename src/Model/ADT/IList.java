@@ -1,5 +1,5 @@
-package Model.ADT;
-import Exceptions.ListException;
+package model.adt;
+import exceptions.ListException;
 
 public interface IList<T> {
     void add(T item);

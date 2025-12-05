@@ -1,5 +1,7 @@
-package Model.ADT;
-import Exceptions.DictException;
+package model.adt;
+import exceptions.DictException;
+
+import java.util.List;
 
 public interface IDict<K,V> {
     //put a new key-value pair in the dict
@@ -13,4 +15,6 @@ public interface IDict<K,V> {
 
     //update a key's value
     void update(K key, V new_value) throws DictException;
+
+    List<V> getValues();
 }

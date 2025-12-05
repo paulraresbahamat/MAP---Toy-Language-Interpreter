@@ -1,6 +1,6 @@
-package Model.Type;
-import Model.Value.IValue;
-import Model.Value.BoolValue;
+package model.type;
+import model.value.IValue;
+import model.value.BoolValue;
 
 public class BoolType implements IType {
     String type = "boolean";

@@ -1,12 +1,13 @@
-package Model.Expression;
+package model.expression;
 
-import Exceptions.ExpressionException;
-import Exceptions.CustomException;
-import Model.Type.IntType;
-import Model.Value.BoolValue;
-import Model.Value.IValue;
-import Model.Value.IntValue;
-import Model.ADT.IDict;
+import exceptions.ExpressionException;
+import exceptions.CustomException;
+import model.adt.IHeap;
+import model.type.IntType;
+import model.value.BoolValue;
+import model.value.IValue;
+import model.value.IntValue;
+import model.adt.IDict;
 
 public class RelExp implements IExpression {
     private IExpression exp1;
@@ -20,10 +21,10 @@ public class RelExp implements IExpression {
     }
 
     @Override
-    public IValue eval(IDict<String, IValue> symTable) throws CustomException, ExpressionException {
+    public IValue eval(IDict<String, IValue> symTable, IHeap<Integer, IValue> heap) throws CustomException, ExpressionException {
         IValue v1, v2;
-        v1 = exp1.eval(symTable);
-        v2 = exp2.eval(symTable);
+        v1 = exp1.eval(symTable, heap);
+        v2 = exp2.eval(symTable, heap);
 
         if (v1.getType().equals(new IntType()) && v2.getType().equals(new IntType())) {
             IntValue i1 = (IntValue) v1;
@@ -31,22 +32,15 @@ public class RelExp implements IExpression {
             int n1, n2;
             n1 = i1.getVal();
             n2 = i2.getVal();
-            switch (operation) {
-                case "<":
-                    return new BoolValue(n1 < n2);
-                case "<=":
-                    return new BoolValue(n1 <= n2);
-                case ">":
-                    return new BoolValue(n1 > n2);
-                case ">=":
-                    return new BoolValue(n1 >= n2);
-                case "==":
-                    return new BoolValue(n1 == n2);
-                case "!=":
-                    return new BoolValue(n1 != n2);
-                default:
-                    throw new CustomException("Invalid relational operator");
-            }
+            return switch (operation) {
+                case "<" -> new BoolValue(n1 < n2);
+                case "<=" -> new BoolValue(n1 <= n2);
+                case ">" -> new BoolValue(n1 > n2);
+                case ">=" -> new BoolValue(n1 >= n2);
+                case "==" -> new BoolValue(n1 == n2);
+                case "!=" -> new BoolValue(n1 != n2);
+                default -> throw new CustomException("Invalid relational operator");
+            };
         }
 
         throw new CustomException("Operands are not of type int");
@@ -57,4 +51,8 @@ public class RelExp implements IExpression {
         return new RelExp(exp1.deepCopy(), exp2.deepCopy(), operation);
     }
 
+    @Override
+    public String toString() {
+        return "(" + exp1.toString() + " " + operation + " " + exp2.toString() + ")";
+    }
 }

@@ -1,6 +1,6 @@
-package Model.Value;
-import Model.Type.StringType;
-import Model.Type.IType;
+package model.value;
+import model.type.StringType;
+import model.type.IType;
 
 public class StringValue implements IValue {
     private String value;

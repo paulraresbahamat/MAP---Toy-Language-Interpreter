@@ -1,10 +1,10 @@
-package Model.Statement;
+package model.statement;
 
-import Exceptions.CustomException;
-import Model.ADT.IDict;
-import Model.PrgState;
-import Model.Type.IType;
-import Model.Value.IValue;
+import exceptions.CustomException;
+import model.adt.IDict;
+import model.PrgState;
+import model.type.IType;
+import model.value.IValue;
 
 public class VarDeclStmt implements IStmt{
     private String id;

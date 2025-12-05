@@ -1,6 +1,6 @@
-package Model.ADT;
+package model.adt;
 import java.util.List;
-import Exceptions.StackException;
+import exceptions.StackException;
 
 public interface IStack<T> {
     void push(T item);

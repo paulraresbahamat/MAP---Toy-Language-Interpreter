@@ -1,6 +1,6 @@
-package Model.Value;
-import Model.Type.BoolType;
-import Model.Type.IType;
+package model.value;
+import model.type.BoolType;
+import model.type.IType;
 
 public class BoolValue implements IValue {
     private boolean val;

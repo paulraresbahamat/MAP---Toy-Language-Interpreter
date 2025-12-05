@@ -1,6 +1,6 @@
-package Model.Type;
-import Model.Value.IntValue;
-import Model.Value.IValue;
+package model.type;
+import model.value.IntValue;
+import model.value.IValue;
 
 public class IntType implements IType {
     String type = "Int";

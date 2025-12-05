@@ -1,8 +1,9 @@
-package Model.Expression;
+package model.expression;
 
-import Exceptions.CustomException;
-import Model.Value.IValue;
-import Model.ADT.IDict;
+import exceptions.CustomException;
+import model.adt.IHeap;
+import model.value.IValue;
+import model.adt.IDict;
 
 public class ConstantValue implements IExpression {
     private IValue value;
@@ -12,7 +13,7 @@ public class ConstantValue implements IExpression {
     }
 
     @Override
-    public IValue eval(IDict<String, IValue> symTable) throws CustomException{
+    public IValue eval(IDict<String, IValue> symTable, IHeap<Integer, IValue> heap) throws CustomException{
         return this.value;
     }
 

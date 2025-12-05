@@ -1,8 +1,9 @@
-package Model.Expression;
-import Exceptions.DictException;
-import Exceptions.CustomException;
-import Model.Value.IValue;
-import Model.ADT.IDict;
+package model.expression;
+import exceptions.DictException;
+import exceptions.CustomException;
+import model.adt.IHeap;
+import model.value.IValue;
+import model.adt.IDict;
 
 public class VariableExp implements IExpression {
     private String id;
@@ -12,7 +13,7 @@ public class VariableExp implements IExpression {
     }
 
     @Override
-    public IValue eval(IDict<String, IValue> symTable) throws CustomException{
+    public IValue eval(IDict<String, IValue> symTable, IHeap<Integer, IValue> heap) throws CustomException{
         if(symTable.isDefined(this.id)){
             try{
                 return symTable.get(this.id);

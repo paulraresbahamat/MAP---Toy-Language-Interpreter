@@ -1,10 +1,11 @@
-package Model.Expression;
-import Exceptions.ExpressionException;
-import Exceptions.CustomException;
-import Model.Type.BoolType;
-import Model.Value.IValue;
-import Model.Value.BoolValue;
-import Model.ADT.IDict;
+package model.expression;
+import exceptions.ExpressionException;
+import exceptions.CustomException;
+import model.adt.IHeap;
+import model.type.BoolType;
+import model.value.IValue;
+import model.value.BoolValue;
+import model.adt.IDict;
 
 public class LogicalExp implements IExpression {
     private IExpression exp1;
@@ -18,17 +19,17 @@ public class LogicalExp implements IExpression {
     }
 
     @Override
-    public IValue eval(IDict<String, IValue> symTable) throws CustomException, ExpressionException{
+    public IValue eval(IDict<String, IValue> symTable, IHeap<Integer, IValue> heap) throws CustomException, ExpressionException{
         IValue v1, v2;
-        v1 = exp1.eval(symTable);
+        v1 = exp1.eval(symTable, heap);
         if(v1.getType().equals(new BoolType())){
-            v2 = exp2.eval(symTable);
+            v2 = exp2.eval(symTable, heap);
             if(v2.getType().equals(new BoolType())) {
                 BoolValue b1 = (BoolValue) v1;
                 BoolValue b2 = (BoolValue) v2;
-                boolean n1, n2;
-                n1 = Boolean.parseBoolean(b1.toString());
-                n2 = Boolean.parseBoolean(b2.toString());
+
+                boolean n1 = b1.getVal();
+                boolean n2 = b2.getVal();
                 if (operation.equals("&&")) {
                     return new BoolValue(n1 && n2);
                 } else if (operation.equals(" ||")) {

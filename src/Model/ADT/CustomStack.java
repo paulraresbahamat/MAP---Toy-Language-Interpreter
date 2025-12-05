@@ -1,9 +1,9 @@
-package Model.ADT;
+package model.adt;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
-import Exceptions.StackException;
+import exceptions.StackException;
 
 public class CustomStack<T> implements IStack<T> {
     private Stack<T> stack;

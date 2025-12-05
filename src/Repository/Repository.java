@@ -1,4 +1,4 @@
-package Repository;
+package repository;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Exceptions.CustomException;
-import Model.PrgState;
+import exceptions.CustomException;
+import model.PrgState;
 
 public class Repository implements IRepository {
     private List<PrgState> prgList;
