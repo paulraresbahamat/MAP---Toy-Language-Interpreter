@@ -1,10 +1,13 @@
 package model.statement;
 
+import exceptions.DictException;
 import exceptions.ExpressionException;
 import exceptions.CustomException;
 import model.PrgState;
+import model.adt.IDict;
 import model.expression.IExpression;
 import model.type.BoolType;
+import model.type.IType;
 import model.value.BoolValue;
 import model.value.IValue;
 
@@ -37,6 +40,19 @@ public class IfStmt implements IStmt {
             throw new CustomException("The condition in the if statement is not a boolean.");
         }
         return prg;
+    }
+
+    @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        IType condType = exp.typecheck(typeEnv);
+
+        if (!condType.equals(new BoolType()))
+            throw new CustomException("IF condition not boolean");
+
+        thenStmt.typecheck(typeEnv.deepCopy());
+        elseStmt.typecheck(typeEnv.deepCopy());
+
+        return typeEnv;
     }
 
     @Override

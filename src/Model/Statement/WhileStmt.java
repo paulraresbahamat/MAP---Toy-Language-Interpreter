@@ -1,10 +1,13 @@
 package model.statement;
 
+import exceptions.DictException;
 import exceptions.ExpressionException;
 import exceptions.CustomException;
 import model.PrgState;
+import model.adt.IDict;
 import model.expression.IExpression;
 import model.type.BoolType;
+import model.type.IType;
 import model.value.BoolValue;
 import model.value.IValue;
 
@@ -35,6 +38,18 @@ public class WhileStmt implements IStmt {
         }
         return null;
     }
+
+    @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        IType condType = expression.typecheck(typeEnv);
+
+        if (!condType.equals(new BoolType()))
+            throw new CustomException("WHILE condition not boolean");
+
+        statement.typecheck(typeEnv.deepCopy());
+        return typeEnv;
+    }
+
 
     @Override
     public IStmt deepCopy() {

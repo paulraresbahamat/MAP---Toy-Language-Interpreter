@@ -45,6 +45,15 @@ public class CustomDict<K,V> implements IDict<K,V> {
     }
 
     @Override
+    public IDict<K, V> deepCopy() {
+        CustomDict<K, V> copy = new CustomDict<>();
+        for (K key : dict.keySet()) {
+            copy.put(key, dict.get(key));
+        }
+        return copy;
+    }
+
+    @Override
     public List<V> getValues(){
         return new LinkedList<V>(dict.values());
     }

@@ -1,9 +1,12 @@
 package model.statement;
 
 import exceptions.CustomException;
+import exceptions.DictException;
 import exceptions.ExpressionException;
+import model.adt.IDict;
 import model.expression.IExpression;
 import model.PrgState;
+import model.type.IType;
 import model.value.IValue;
 
 public class PrintStmt implements IStmt {
@@ -23,6 +26,12 @@ public class PrintStmt implements IStmt {
         }
         prg.getOutput().add(val);
         return prg;
+    }
+
+    @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        exp.typecheck(typeEnv);
+        return typeEnv;
     }
 
     @Override

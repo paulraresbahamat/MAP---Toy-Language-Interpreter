@@ -1,20 +1,21 @@
 package view;
 
 import controller.Controller;
+import exceptions.CustomException;
+import exceptions.DictException;
+import exceptions.ExpressionException;
 import model.adt.*;
 import model.expression.*;
 import model.PrgState;
 import model.statement.*;
-import model.type.BoolType;
-import model.type.IntType;
-import model.type.RefType;
-import model.type.StringType;
+import model.type.*;
 import model.value.BoolValue;
 import model.value.IValue;
 import model.value.IntValue;
 import model.value.StringValue;
 import repository.IRepository;
 import repository.Repository;
+import view.command.RunExample;
 
 import java.io.BufferedReader;
 
@@ -186,7 +187,18 @@ public class View {
         IDict<StringValue, BufferedReader> fileTable = new CustomDict<>();
         IHeap<Integer, IValue> heap = new CustomHeap<>();
 
-        return new PrgState(exeStack, symTable, output, originalProgram, fileTable, heap);
+        try {
+            IDict<String, IType> typeEnv = new CustomDict<>();
+            originalProgram.typecheck(typeEnv);
+
+            return new PrgState(exeStack, symTable, output, originalProgram, fileTable, heap);
+
+        } catch (CustomException e) {
+            System.out.println("Typecheck error: " + e.getMessage());
+            throw new RuntimeException("Program failed typecheck: " + e.getMessage());
+        } catch (DictException | ExpressionException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static Controller createController(IStmt stmt, String logFilePath) {

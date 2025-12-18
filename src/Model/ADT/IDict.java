@@ -17,4 +17,6 @@ public interface IDict<K,V> {
     void update(K key, V new_value) throws DictException;
 
     List<V> getValues();
+
+    IDict<K,V> deepCopy();
 }

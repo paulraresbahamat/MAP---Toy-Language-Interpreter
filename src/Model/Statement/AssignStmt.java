@@ -6,6 +6,7 @@ import exceptions.CustomException;
 import model.PrgState;
 import model.adt.IHeap;
 import model.expression.IExpression;
+import model.type.IType;
 import model.value.IValue;
 import model.adt.IDict;
 
@@ -38,15 +39,24 @@ public class AssignStmt implements IStmt {
 
             symTable.put(id, val);
 
-        } catch (ExpressionException e) {
-            throw new CustomException(e.getMessage());
-        } catch (DictException e) {
+        } catch (ExpressionException | DictException e) {
             throw new CustomException(e.getMessage());
         } catch (CustomException e) {
             throw e;
         }
 
         return prg;
+    }
+
+    @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) throws CustomException, DictException, ExpressionException {
+        IType tVar = typeEnv.get(id);
+        IType tExp = exp.typecheck(typeEnv);
+
+        if (tVar.equals(tExp))
+            return typeEnv;
+        else
+            throw new CustomException("Assignment: types do not match");
     }
 
 

@@ -4,7 +4,9 @@ import exceptions.CustomException;
 import exceptions.DictException;
 import exceptions.ExpressionException;
 import model.PrgState;
+import model.adt.IDict;
 import model.expression.IExpression;
+import model.type.BoolType;
 import model.type.IType;
 import model.type.RefType;
 import model.value.IValue;
@@ -52,6 +54,16 @@ public class NewStmt implements IStmt {
         return prg;
     }
 
+    @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        IType varType = typeEnv.get(varName);
+        IType expType = expression.typecheck(typeEnv);
+
+        if (varType.equals(new RefType(expType)))
+            return typeEnv;
+        else
+            throw new CustomException("NEW statement type mismatch");
+    }
 
     @Override
     public IStmt deepCopy(){

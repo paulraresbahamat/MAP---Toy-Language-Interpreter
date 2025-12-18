@@ -1,7 +1,9 @@
 package model.expression;
+import exceptions.DictException;
 import exceptions.ExpressionException;
 import exceptions.CustomException;
 import model.adt.IHeap;
+import model.type.IType;
 import model.type.IntType;
 import model.value.IValue;
 import model.value.IntValue;
@@ -45,6 +47,17 @@ public class ArithmeticExp implements IExpression {
                 throw new CustomException("Operands must be integers.");
         } else
             throw new CustomException("Operands must be integers.");
+    }
+
+    @Override
+    public IType typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        IType t1 = exp1.typecheck(typeEnv);
+        IType t2 = exp2.typecheck(typeEnv);
+
+        if (t1.equals(new IntType()) && t2.equals(new IntType()))
+            return new IntType();
+        else
+            throw new CustomException("Operands must be integers");
     }
 
     @Override

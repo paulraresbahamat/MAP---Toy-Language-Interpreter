@@ -1,8 +1,11 @@
 package model.expression;
 
+import exceptions.DictException;
 import exceptions.ExpressionException;
 import exceptions.CustomException;
 import model.adt.IHeap;
+import model.type.BoolType;
+import model.type.IType;
 import model.type.IntType;
 import model.value.BoolValue;
 import model.value.IValue;
@@ -49,6 +52,17 @@ public class RelExp implements IExpression {
     @Override
     public IExpression deepCopy() {
         return new RelExp(exp1.deepCopy(), exp2.deepCopy(), operation);
+    }
+
+    @Override
+    public IType typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        IType t1 = exp1.typecheck(typeEnv);
+        IType t2 = exp2.typecheck(typeEnv);
+
+        if (t1.equals(new IntType()) && t2.equals(new IntType()))
+            return new BoolType();
+        else
+            throw new CustomException("Relational operands must be int");
     }
 
     @Override

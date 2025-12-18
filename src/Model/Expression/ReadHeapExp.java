@@ -1,9 +1,12 @@
 package model.expression;
 
 import exceptions.CustomException;
+import exceptions.DictException;
 import exceptions.ExpressionException;
 import model.adt.IDict;
 import model.adt.IHeap;
+import model.type.IType;
+import model.type.RefType;
 import model.value.IValue;
 import model.value.RefValue;
 
@@ -28,6 +31,16 @@ public class ReadHeapExp implements IExpression{
         }catch(Exception e){
             throw new CustomException(e.getMessage());
         }
+    }
+
+    @Override
+    public IType typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        IType t = exp.typecheck(typeEnv);
+
+        if (t instanceof RefType)
+            return ((RefType) t).getInner();
+        else
+            throw new CustomException("rH argument is not a RefType");
     }
 
     @Override

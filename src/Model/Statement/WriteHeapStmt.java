@@ -4,7 +4,9 @@ import exceptions.CustomException;
 import exceptions.DictException;
 import exceptions.ExpressionException;
 import model.PrgState;
+import model.adt.IDict;
 import model.expression.IExpression;
+import model.type.IType;
 import model.type.RefType;
 import model.value.IValue;
 import model.value.RefValue;
@@ -53,6 +55,21 @@ public class WriteHeapStmt implements IStmt {
         return prg;
     }
 
+    @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) throws CustomException, DictException, ExpressionException {
+        IType varType = typeEnv.get(varName);
+
+        if (!(varType instanceof RefType))
+            throw new CustomException("wH target not RefType");
+
+        IType expType = expression.typecheck(typeEnv);
+        IType inner = ((RefType) varType).getInner();
+
+        if (inner.equals(expType))
+            return typeEnv;
+        else
+            throw new CustomException("wH type mismatch");
+    }
 
     @Override
     public IStmt deepCopy(){

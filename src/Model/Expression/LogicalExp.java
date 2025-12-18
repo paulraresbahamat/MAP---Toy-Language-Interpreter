@@ -1,8 +1,10 @@
 package model.expression;
+import exceptions.DictException;
 import exceptions.ExpressionException;
 import exceptions.CustomException;
 import model.adt.IHeap;
 import model.type.BoolType;
+import model.type.IType;
 import model.value.IValue;
 import model.value.BoolValue;
 import model.adt.IDict;
@@ -43,6 +45,17 @@ public class LogicalExp implements IExpression {
         } else{
             throw new CustomException("Operands must be boolean.");
         }
+    }
+
+    @Override
+    public IType typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        IType t1 = exp1.typecheck(typeEnv);
+        IType t2 = exp2.typecheck(typeEnv);
+
+        if (t1.equals(new BoolType()) && t2.equals(new BoolType()))
+            return new BoolType();
+        else
+            throw new CustomException("Operands must be boolean.");
     }
 
     @Override

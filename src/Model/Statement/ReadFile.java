@@ -4,7 +4,9 @@ import exceptions.CustomException;
 import exceptions.DictException;
 import exceptions.ExpressionException;
 import model.PrgState;
+import model.adt.IDict;
 import model.expression.IExpression;
+import model.type.IType;
 import model.type.IntType;
 import model.type.StringType;
 import model.value.IValue;
@@ -55,12 +57,9 @@ public class ReadFile implements IStmt {
                 val = new IntValue(Integer.parseInt(line));
             }
 
-            // 6. Update variable
             prg.getSymTable().update(varName, val);
 
-        } catch (DictException e) {
-            throw new CustomException(e.getMessage());
-        } catch (ExpressionException e) {
+        } catch (DictException | ExpressionException e) {
             throw new CustomException(e.getMessage());
         } catch (NumberFormatException e) {
             throw new CustomException("Invalid integer format in file");
@@ -69,6 +68,20 @@ public class ReadFile implements IStmt {
         }
 
         return prg;
+    }
+
+    @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        IType tExp = exp.typecheck(typeEnv);
+        IType tVar = typeEnv.get(varName);
+
+        if (!tExp.equals(new StringType()))
+            throw new CustomException("readFile expression not string");
+
+        if (!tVar.equals(new IntType()))
+            throw new CustomException("readFile variable not int");
+
+        return typeEnv;
     }
 
     @Override

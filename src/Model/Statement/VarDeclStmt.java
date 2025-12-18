@@ -27,6 +27,12 @@ public class VarDeclStmt implements IStmt{
     }
 
     @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) {
+        typeEnv.put(id, type);
+        return typeEnv;
+    }
+
+    @Override
     public String toString(){
         return type.toString() + " " + id;
     }

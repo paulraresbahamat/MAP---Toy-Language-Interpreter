@@ -1,7 +1,11 @@
 package model.statement;
 import exceptions.CustomException;
+import exceptions.DictException;
+import exceptions.ExpressionException;
 import model.PrgState;
+import model.adt.IDict;
 import model.adt.IStack;
+import model.type.IType;
 
 public class CompStmt implements IStmt {
     private IStmt first;
@@ -20,6 +24,12 @@ public class CompStmt implements IStmt {
         stk.push(first);
         return prg;
     }
+
+    @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        return second.typecheck(first.typecheck(typeEnv));
+    }
+
 
     @Override
     public String toString(){

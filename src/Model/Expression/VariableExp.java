@@ -1,7 +1,9 @@
 package model.expression;
 import exceptions.DictException;
 import exceptions.CustomException;
+import exceptions.ExpressionException;
 import model.adt.IHeap;
+import model.type.IType;
 import model.value.IValue;
 import model.adt.IDict;
 
@@ -23,6 +25,11 @@ public class VariableExp implements IExpression {
         } else{
             throw new CustomException("The variable " + this.id + " has not been declared.");
         }
+    }
+
+    @Override
+    public IType typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        return typeEnv.get(id);
     }
 
     @Override

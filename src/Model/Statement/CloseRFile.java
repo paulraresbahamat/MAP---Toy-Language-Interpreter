@@ -3,8 +3,10 @@ package model.statement;
 import exceptions.CustomException;
 import exceptions.DictException;
 import exceptions.ExpressionException;
+import model.adt.IDict;
 import model.expression.IExpression;
 import model.PrgState;
+import model.type.IType;
 import model.type.StringType;
 import model.value.IValue;
 import model.value.StringValue;
@@ -47,6 +49,16 @@ public class CloseRFile implements IStmt {
         }
 
         return prg;
+    }
+
+    @Override
+    public IDict<String, IType> typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        IType t = exp.typecheck(typeEnv);
+
+        if (t.equals(new StringType()))
+            return typeEnv;
+        else
+            throw new CustomException("closeRFile argument is not string");
     }
 
     @Override

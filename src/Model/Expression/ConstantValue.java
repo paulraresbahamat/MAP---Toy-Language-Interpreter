@@ -1,7 +1,10 @@
 package model.expression;
 
 import exceptions.CustomException;
+import exceptions.DictException;
+import exceptions.ExpressionException;
 import model.adt.IHeap;
+import model.type.IType;
 import model.value.IValue;
 import model.adt.IDict;
 
@@ -20,6 +23,11 @@ public class ConstantValue implements IExpression {
     @Override
     public IExpression deepCopy(){
         return new ConstantValue(this.value.deepCopy());
+    }
+
+    @Override
+    public IType typecheck(IDict<String, IType> typeEnv) throws CustomException, ExpressionException, DictException {
+        return value.getType();
     }
 
     @Override
