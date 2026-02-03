@@ -12,8 +12,8 @@ import model.value.BoolValue;
 import model.value.IValue;
 
 public class WhileStmt implements IStmt {
-    private IExpression expression;
-    private IStmt statement;
+    private final IExpression expression;
+    private final IStmt statement;
 
     public WhileStmt(IExpression expression, IStmt statement) {
         this.expression = expression;
@@ -44,7 +44,7 @@ public class WhileStmt implements IStmt {
         IType condType = expression.typecheck(typeEnv);
 
         if (!condType.equals(new BoolType()))
-            throw new CustomException("WHILE condition not boolean");
+            throw new CustomException("While condition not boolean");
 
         statement.typecheck(typeEnv.deepCopy());
         return typeEnv;

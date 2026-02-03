@@ -12,8 +12,8 @@ import model.value.IValue;
 import model.value.RefValue;
 
 public class WriteHeapStmt implements IStmt {
-    private String varName;
-    private IExpression expression;
+    private final String varName;
+    private final IExpression expression;
 
     public WriteHeapStmt(String varName, IExpression expression){
         this.varName = varName;
@@ -28,11 +28,10 @@ public class WriteHeapStmt implements IStmt {
 
         try {
             IValue varValue = prg.getSymTable().get(varName);
-            if (!(varValue instanceof RefValue)) {
+            if (!(varValue instanceof RefValue refValue)) {
                 throw new CustomException("Variable " + varName + " is not of RefType.");
             }
 
-            RefValue refValue = (RefValue) varValue;
             Integer address = refValue.getAddress();
             if (!prg.getHeap().isDefined(address)) {
                 throw new CustomException("Address " + address + " is not allocated in heap.");
@@ -48,8 +47,6 @@ public class WriteHeapStmt implements IStmt {
 
         } catch (DictException | ExpressionException e) {
             throw new CustomException(e.getMessage());
-        } catch (CustomException e) {
-            throw e;
         }
 
         return prg;

@@ -10,7 +10,7 @@ import model.type.IType;
 import model.value.IValue;
 
 public class PrintStmt implements IStmt {
-    private IExpression exp;
+    private final IExpression exp;
 
     public PrintStmt(IExpression exp){
         this.exp = exp;
@@ -25,7 +25,7 @@ public class PrintStmt implements IStmt {
             throw new CustomException(e.getMessage());
         }
         prg.getOutput().add(val);
-        return prg;
+        return null;
     }
 
     @Override

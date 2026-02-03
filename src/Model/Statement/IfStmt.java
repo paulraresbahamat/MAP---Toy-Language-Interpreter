@@ -12,9 +12,9 @@ import model.value.BoolValue;
 import model.value.IValue;
 
 public class IfStmt implements IStmt {
-    private IExpression exp;
-    private IStmt thenStmt;
-    private IStmt elseStmt;
+    private final IExpression exp;
+    private final IStmt thenStmt;
+    private final IStmt elseStmt;
 
     public IfStmt(IExpression exp, IStmt thenStmt, IStmt elseStmt){
         this.exp = exp;
@@ -39,7 +39,7 @@ public class IfStmt implements IStmt {
         } else{
             throw new CustomException("The condition in the if statement is not a boolean.");
         }
-        return prg;
+        return null;
     }
 
     @Override

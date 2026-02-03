@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="view.gui.SelectController" style="-fx-background-color: #f0f0f0;">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <Label text="Toy Language Interpreter - Program Selection"
+           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+    <ListView fx:id="programListView" VBox.vgrow="ALWAYS" prefWidth="600.0" prefHeight="400.0"
+              style="-fx-border-color: #ccc; -fx-border-radius: 5;"/>
+    <Button fx:id="selectButton" text="Run Program" onAction="#handleSelectProgram"
+            style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 30;"/>
+</VBox>

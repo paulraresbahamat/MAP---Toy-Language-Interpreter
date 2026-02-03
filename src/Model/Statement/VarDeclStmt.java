@@ -7,8 +7,8 @@ import model.type.IType;
 import model.value.IValue;
 
 public class VarDeclStmt implements IStmt{
-    private String id;
-    private IType type;
+    private final String id;
+    private final IType type;
 
     public VarDeclStmt(String id, IType type){
         this.id = id;
@@ -23,7 +23,7 @@ public class VarDeclStmt implements IStmt{
         }
         symTable.put(id, type.defaultValue());
 
-        return prg;
+        return null;
     }
 
     @Override

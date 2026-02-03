@@ -13,8 +13,8 @@ import model.value.IValue;
 import model.value.RefValue;
 
 public class NewStmt implements IStmt {
-    private String varName;
-    private IExpression expression;
+    private final String varName;
+    private final IExpression expression;
 
     public NewStmt(String varName, IExpression expression){
         this.varName = varName;
@@ -43,15 +43,11 @@ public class NewStmt implements IStmt {
             prg.getHeap().put(newAddress, value);
             prg.getSymTable().put(varName, new RefValue(newAddress, value.getType()));
 
-        } catch (DictException e) {
+        } catch (DictException | ExpressionException e) {
             throw new CustomException(e.getMessage());
-        } catch (ExpressionException e) {
-            throw new CustomException(e.getMessage());
-        } catch (CustomException e) {
-            throw e;
         }
 
-        return prg;
+        return null;
     }
 
     @Override

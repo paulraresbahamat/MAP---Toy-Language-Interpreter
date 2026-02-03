@@ -1,0 +1,2008 @@
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(Int v;(Ref(Int) a;(v = 10;(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a))))))))]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(Ref(Int) a;(v = 10;(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a))))))), Int v]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(Ref(Int) a;(v = 10;(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a))))))), Int v]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(Ref(Int) a;(v = 10;(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a)))))))]
+Symbol Table:
+{v=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(Ref(Int) a;(v = 10;(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a)))))))]
+Symbol Table:
+{v=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(v = 10;(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a)))))), Ref(Int) a]
+Symbol Table:
+{v=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(v = 10;(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a)))))), Ref(Int) a]
+Symbol Table:
+{v=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(v = 10;(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a))))))]
+Symbol Table:
+{a=RefValue(0, Int), v=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(v = 10;(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a))))))]
+Symbol Table:
+{a=RefValue(0, Int), v=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a))))), v = 10]
+Symbol Table:
+{a=RefValue(0, Int), v=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a))))), v = 10]
+Symbol Table:
+{a=RefValue(0, Int), v=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a)))))]
+Symbol Table:
+{a=RefValue(0, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(NewStmt(a, 22);(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a)))))]
+Symbol Table:
+{a=RefValue(0, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a)))), NewStmt(a, 22)]
+Symbol Table:
+{a=RefValue(0, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a)))), NewStmt(a, 22)]
+Symbol Table:
+{a=RefValue(0, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))));(print(v);print(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(print(v);print(ReadHeapExp(a))), fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(print(v);print(ReadHeapExp(a))), fork((WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a))))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(print(v);print(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a)))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[(print(v);print(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(WriteHeapStmt(a, 30);(v = 32;(print(v);print(ReadHeapExp(a)))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[print(ReadHeapExp(a)), print(v)]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(v = 32;(print(v);print(ReadHeapExp(a)))), WriteHeapStmt(a, 30)]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[print(ReadHeapExp(a)), print(v)]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(v = 32;(print(v);print(ReadHeapExp(a)))), WriteHeapStmt(a, 30)]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 22
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[print(ReadHeapExp(a))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[10]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(v = 32;(print(v);print(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[10]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(v = 32;(print(v);print(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[10]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[print(ReadHeapExp(a))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[10]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(v = 32;(print(v);print(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[10]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(v = 32;(print(v);print(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[10]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[10, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(print(v);print(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(print(v);print(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[10, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(print(v);print(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(print(v);print(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+0
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(1, Int), v=10}
+Output List:
+[10, 30, 32]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[print(ReadHeapExp(a))]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[print(ReadHeapExp(a))]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[print(ReadHeapExp(a))]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[print(ReadHeapExp(a))]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(1, Int), v=32}
+Output List:
+[10, 30, 32, 30]
+File Table:
+{}
+Heap:
+1 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(Int a;(a = 5;print(a)))]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(a = 5;print(a)), Int a]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(a = 5;print(a)), Int a]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(a = 5;print(a))]
+Symbol Table:
+{a=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[(a = 5;print(a))]
+Symbol Table:
+{a=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[print(a), a = 5]
+Symbol Table:
+{a=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[print(a), a = 5]
+Symbol Table:
+{a=0}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[print(a)]
+Symbol Table:
+{a=5}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[print(a)]
+Symbol Table:
+{a=5}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[]
+Symbol Table:
+{a=5}
+Output List:
+[5]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[]
+Symbol Table:
+{a=5}
+Output List:
+[5]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+1
+Execution Stack:
+[]
+Symbol Table:
+{a=5}
+Output List:
+[5]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(Ref(Int) v;(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))))]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))), Ref(Int) v]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))), Ref(Int) v]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))))]
+Symbol Table:
+{v=RefValue(0, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))))]
+Symbol Table:
+{v=RefValue(0, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))), NewStmt(v, 20)]
+Symbol Table:
+{v=RefValue(0, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))), NewStmt(v, 20)]
+Symbol Table:
+{v=RefValue(0, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))]
+Symbol Table:
+{v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))]
+Symbol Table:
+{v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))), Ref(Ref(Int)) a]
+Symbol Table:
+{v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))), Ref(Ref(Int)) a]
+Symbol Table:
+{v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))]
+Symbol Table:
+{a=RefValue(0, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))]
+Symbol Table:
+{a=RefValue(0, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))), NewStmt(a, v)]
+Symbol Table:
+{a=RefValue(0, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))), NewStmt(a, v)]
+Symbol Table:
+{a=RefValue(0, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[print(ReadHeapExp(ReadHeapExp(a))), NewStmt(v, 30)]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[print(ReadHeapExp(ReadHeapExp(a))), NewStmt(v, 30)]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[print(ReadHeapExp(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[print(ReadHeapExp(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[20]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[20]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+2
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[20]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(Ref(Int) v;(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))))]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))), Ref(Int) v]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))), Ref(Int) v]
+Symbol Table:
+{}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))))]
+Symbol Table:
+{v=RefValue(0, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(v, 20);(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))))]
+Symbol Table:
+{v=RefValue(0, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))), NewStmt(v, 20)]
+Symbol Table:
+{v=RefValue(0, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))), NewStmt(v, 20)]
+Symbol Table:
+{v=RefValue(0, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+(the heap is empty)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))]
+Symbol Table:
+{v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(Ref(Ref(Int)) a;(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))))]
+Symbol Table:
+{v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))), Ref(Ref(Int)) a]
+Symbol Table:
+{v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))), Ref(Ref(Int)) a]
+Symbol Table:
+{v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))]
+Symbol Table:
+{a=RefValue(0, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(a, v);(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))))]
+Symbol Table:
+{a=RefValue(0, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))), NewStmt(a, v)]
+Symbol Table:
+{a=RefValue(0, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a)))), NewStmt(a, v)]
+Symbol Table:
+{a=RefValue(0, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[(NewStmt(v, 30);print(ReadHeapExp(ReadHeapExp(a))))]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[print(ReadHeapExp(ReadHeapExp(a))), NewStmt(v, 30)]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[print(ReadHeapExp(ReadHeapExp(a))), NewStmt(v, 30)]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(1, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[print(ReadHeapExp(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[print(ReadHeapExp(ReadHeapExp(a)))]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[20]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[20]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+
+--------------------------------------------------
+Program State:
+--------------------------------------------------
+ID: 
+3
+Execution Stack:
+[]
+Symbol Table:
+{a=RefValue(2, Ref(Int)), v=RefValue(3, Int)}
+Output List:
+[20]
+File Table:
+{}
+Heap:
+1 -> 20
+2 -> RefValue(1, Int)
+3 -> 30
+
+
+

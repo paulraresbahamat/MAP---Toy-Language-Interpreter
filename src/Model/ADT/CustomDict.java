@@ -54,6 +54,11 @@ public class CustomDict<K,V> implements IDict<K,V> {
     }
 
     @Override
+    public Map<K, V> getContent() {
+        return this.dict;
+    }
+
+    @Override
     public List<V> getValues(){
         return new LinkedList<V>(dict.values());
     }

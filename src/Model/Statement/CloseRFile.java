@@ -15,7 +15,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class CloseRFile implements IStmt {
-    private IExpression exp;
+    private final IExpression exp;
 
     public CloseRFile(IExpression exp) {
         this.exp = exp;
@@ -48,7 +48,7 @@ public class CloseRFile implements IStmt {
             throw new CustomException("Error closing file: " + e.getMessage());
         }
 
-        return prg;
+        return null;
     }
 
     @Override

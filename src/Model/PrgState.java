@@ -1,4 +1,6 @@
 package model;
+import exceptions.CustomException;
+import exceptions.StackException;
 import model.adt.IHeap;
 import model.adt.IStack;
 import model.adt.IDict;
@@ -13,9 +15,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class PrgState {
+    private static int nextId = 0;
+    private final int id;
+    private boolean isNotCompleted;
+
+    public boolean isNotCompleted(){
+        return isNotCompleted;
+    }
+
+    public void setNotCompleted(boolean isNotCompleted){
+        this.isNotCompleted = isNotCompleted;
+    }
+
     private IStack<IStmt> exeStack;
 
-    public IStack<IStmt> getExeStack() {
+    public IStack<IStmt> getExeStack(){
         return exeStack;
     }
 
@@ -33,7 +47,7 @@ public class PrgState {
 
     private IStmt originalProgram;
 
-    private IDict<StringValue, BufferedReader> fileTable;
+    private IDict<StringValue,BufferedReader> fileTable;
 
     public IDict<StringValue, BufferedReader> getFileTable(){
         return fileTable;
@@ -41,36 +55,73 @@ public class PrgState {
 
     private IHeap<Integer, IValue> heap;
 
-    public IHeap<Integer, IValue> getHeap(){
+    public IHeap<Integer, IValue> getHeap() {
         return heap;
     }
 
+    private static synchronized int getNextId() {
+        return nextId++;
+    }
+
     public PrgState(IStack<IStmt> exeStack, IDict<String, IValue> symTable, IList<IValue> output, IStmt originalProgram,
-                    IDict<StringValue, BufferedReader> fileTable, IHeap<Integer, IValue> heap){
+                    IDict<StringValue, BufferedReader> fileTable, IHeap<Integer, IValue> heap) {
+        this.id = getNextId();
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.output = output;
         this.originalProgram = originalProgram.deepCopy();
         this.fileTable = fileTable;
         this.heap = heap;
-
+        this.isNotCompleted = true;
         exeStack.push(originalProgram);
     }
 
     @Override
-    public String toString(){
-        return "Program State {\n" + "exeStack=" + exeStack.getList() +
-                ",\n symTable=" + symTable + ",\n output=" + output +
-                ",\n originalProgram=" + originalProgram + ",\nfileTable=" + fileTable + ",\n heap=" + heap + "\n}";
+    public String toString() {
+        return "--------------------------------------------------\n" +
+                "Program State:\n" +
+                "--------------------------------------------------\n" +
+                "ID: \n" + id + "\n" +
+                "Execution Stack:\n" + exeStack.toString() + "\n" +
+                "Symbol Table:\n" + symTable.toString() + "\n" +
+                "Output List:\n" + output.toString() + "\n" +
+                "File Table:\n" + fileTable.toString() + "\n" +
+                "Heap:\n" + heap.toString() + "\n\n";
     }
 
-    public Set<Integer> getUsedAddresses(){
+    public Set<Integer> getUsedAddresses() {
         Set<Integer> usedAddresses = new HashSet<>();
-        for(IValue value : this.symTable.getValues()){
-            if(value instanceof RefValue){
+        for (IValue value : this.symTable.getValues()) {
+            if (value instanceof RefValue) {
                 usedAddresses.add(((RefValue) value).getAddress());
             }
         }
+
+        for (IValue value : this.heap.getValues()) {
+            if (value instanceof RefValue) {
+                usedAddresses.add(((RefValue) value).getAddress());
+            }
+        }
+
         return usedAddresses;
+    }
+
+    public PrgState oneStep() throws CustomException {
+        if (exeStack.isEmpty()) {
+            this.isNotCompleted = false;
+            return null;
+        }
+
+        IStmt crtStmt;
+        try {
+            crtStmt = exeStack.pop();
+        } catch (StackException e) {
+            throw new CustomException("prgState stack is empty");
+        }
+        return crtStmt.execute(this);
+    }
+
+    public int getId() {
+        return id;
     }
 }

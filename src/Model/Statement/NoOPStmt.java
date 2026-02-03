@@ -7,7 +7,7 @@ import model.type.IType;
 public class NoOPStmt implements IStmt {
     @Override
     public PrgState execute(PrgState prg) throws CustomException{
-        return prg;
+        return null;
     }
 
     @Override

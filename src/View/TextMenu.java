@@ -7,7 +7,7 @@ import view.command.Command;
 import view.command.RunExample;
 
 public class TextMenu {
-    private Map<String, Command> commands;
+    private final Map<String, Command> commands;
 
     public TextMenu() {
         commands = new HashMap<>();
@@ -18,25 +18,24 @@ public class TextMenu {
     }
 
     public void printMenu() {
+        System.out.println("\n==================================================");
+        System.out.println("          TOY LANGUAGE INTERPRETER MENU           ");
+        System.out.println("==================================================");
         for (Command c : commands.values()) {
-            String status = "";
-            if (c instanceof RunExample) {
-                status = ((RunExample) c).hasBeenExecuted() ? " (executed)" : " (not executed)";
-            }
-            String line = String.format("%4s : %s%s", c.getKey(), c.getDescription(), status);
-            System.out.println(line);
+            System.out.printf("%4s : %s%n", c.getKey(), c.getDescription());
         }
+        System.out.println("==================================================");
     }
 
     public void show() {
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
                 printMenu();
-                System.out.println("Input the option: ");
+                System.out.println("\nPlease select an option >: ");
                 String key = scanner.nextLine();
                 Command c = commands.get(key);
                 if (c == null) {
-                    System.out.println("Invalid option");
+                    System.out.println("\nInvalid option. Try again (0-10).");
                 } else {
                     c.execute();
                 }

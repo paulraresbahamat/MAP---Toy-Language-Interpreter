@@ -1,53 +1,49 @@
-// src/view/command/RunExample.java
 package view.command;
 import controller.Controller;
 import exceptions.CustomException;
+import model.PrgState;
+import model.adt.CustomDict;
+import model.adt.CustomHeap;
+import model.adt.CustomList;
+import model.adt.CustomStack;
 import model.statement.IStmt;
+import model.value.IValue;
+import model.value.StringValue;
+import repository.IRepository;
+import repository.Repository;
+
+import java.io.BufferedReader;
 import java.util.Scanner;
 
 public class RunExample extends Command {
-    private Controller controller;
-    private boolean hasBeenExecuted;
+    private final IStmt originalStmt;
+    private final String logFile;
 
-    public RunExample(String key, IStmt stmt, Controller controller) {
-        super(key, stmt.toString());
-        this.controller = controller;
-        this.hasBeenExecuted = false;
+    public RunExample(String key, String desc, IStmt stmt, String logFile) {
+        super(key, desc);
+        this.originalStmt = stmt;
+        this.logFile = logFile;
     }
 
     @Override
     public void execute() {
-        if (hasBeenExecuted) {
-            System.out.println("Program has already been executed!");
-            return;
-        }
-
-        Scanner scanner = new Scanner(System.in);
-        boolean useSafe = true;
-        while (true) {
-            System.out.print("Use safe garbage collector? (s = safe / u = unsafe): ");
-            String line = scanner.nextLine().trim().toLowerCase();
-            if ("s".equals(line) || "safe".equals(line)) {
-                useSafe = true;
-                break;
-            }
-            if ("u".equals(line) || "unsafe".equals(line)) {
-                useSafe = false;
-                break;
-            }
-            System.out.println("Invalid input. Please enter 's' or 'u'.");
-        }
-
         try {
-            controller.allSteps(useSafe);
-            hasBeenExecuted = true;
-        } catch (CustomException e) {
-            System.out.println(e.getMessage());
-        }
-        // do not close scanner to avoid closing System.in for other commands
-    }
+            PrgState prg = new PrgState(
+                    new CustomStack<>(),
+                    new CustomDict<>(),
+                    new CustomList<>(),
+                    originalStmt.deepCopy(),
+                    new CustomDict<>(),
+                    new CustomHeap<>()
+            );
 
-    public boolean hasBeenExecuted() {
-        return hasBeenExecuted;
+            IRepository repo = new Repository(prg, logFile);
+            Controller controller = new Controller(repo);
+            controller.allSteps();
+
+            System.out.println("Execution finished successfully.");
+        } catch (CustomException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

@@ -17,8 +17,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class ReadFile implements IStmt {
-    private IExpression exp;
-    private String varName;
+    private final IExpression exp;
+    private final String varName;
 
     public ReadFile(IExpression exp, String varName) {
         this.exp = exp;
@@ -67,7 +67,7 @@ public class ReadFile implements IStmt {
             throw new CustomException("Error reading from file: " + e.getMessage());
         }
 
-        return prg;
+        return null;
     }
 
     @Override

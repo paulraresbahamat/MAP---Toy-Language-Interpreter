@@ -2,6 +2,7 @@ package model.adt;
 import exceptions.DictException;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IDict<K,V> {
     //put a new key-value pair in the dict
@@ -19,4 +20,6 @@ public interface IDict<K,V> {
     List<V> getValues();
 
     IDict<K,V> deepCopy();
+
+    Map<K, V> getContent();
 }

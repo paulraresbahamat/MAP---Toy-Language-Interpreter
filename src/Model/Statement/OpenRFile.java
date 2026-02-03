@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class OpenRFile implements IStmt{
-    private IExpression exp;
+    private final IExpression exp;
     public OpenRFile(IExpression exp){
         this.exp = exp;
     }
@@ -39,7 +39,7 @@ public class OpenRFile implements IStmt{
         } catch (FileNotFoundException e) {
             throw new CustomException("File not found: " + e.getMessage());
         }
-        return prg;
+        return null;
     }
 
     @Override

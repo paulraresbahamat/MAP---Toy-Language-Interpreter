@@ -8,8 +8,8 @@ import model.adt.IStack;
 import model.type.IType;
 
 public class CompStmt implements IStmt {
-    private IStmt first;
-    private IStmt second;
+    private final IStmt first;
+    private final IStmt second;
 
     public CompStmt(IStmt first, IStmt second){
         this.first = first;
@@ -22,7 +22,7 @@ public class CompStmt implements IStmt {
 
         stk.push(second);
         stk.push(first);
-        return prg;
+        return null;
     }
 
     @Override

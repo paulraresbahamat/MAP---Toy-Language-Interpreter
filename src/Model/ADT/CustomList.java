@@ -32,4 +32,9 @@ public class CustomList<T> implements IList<T> {
     public String toString(){
         return list.toString();
     }
+
+    @Override
+    public List<T> getList() {
+        return this.list;
+    }
 }

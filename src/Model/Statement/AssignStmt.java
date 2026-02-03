@@ -11,8 +11,8 @@ import model.value.IValue;
 import model.adt.IDict;
 
 public class AssignStmt implements IStmt {
-    private String id;
-    private IExpression exp;
+    private final String id;
+    private final IExpression exp;
 
     public AssignStmt(String id, IExpression exp){
         this.id = id;
@@ -41,11 +41,9 @@ public class AssignStmt implements IStmt {
 
         } catch (ExpressionException | DictException e) {
             throw new CustomException(e.getMessage());
-        } catch (CustomException e) {
-            throw e;
         }
 
-        return prg;
+        return null;
     }
 
     @Override
